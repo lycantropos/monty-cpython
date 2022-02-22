@@ -21,7 +21,6 @@ setup(name={{project}}.__name__,
           'Programming Language :: Python :: 3.{{minor}}',
 {% endfor %}
           'Programming Language :: Python :: Implementation :: CPython',
-          'Programming Language :: Python :: Implementation :: PyPy',
       ],
       license='{{license}}',
       url=project_base_url,
