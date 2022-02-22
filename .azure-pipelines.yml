@@ -16,6 +16,8 @@ strategy:
       python.version: '3.{{minor}}'
       python.architecture: '{{architecture}}'
 {% endfor %}
+{% endfor %}
+{% endfor %}
 
 pool:
   vmImage: $(image)
