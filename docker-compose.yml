@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  {{project}}:
+    build:
+      context: .
+      args:
+        - IMAGE_NAME=${IMAGE_NAME}
+        - IMAGE_VERSION=${IMAGE_VERSION}
+    image: {{dockerhub_login}}/{{project}}:{{version}}
+    volumes:
+{% for resource in [project, "pytest.ini", "README.md", "requirements-tests.txt", "requirements.txt", "setup.py", "tests"] | sort %}
+      - ./{{resource}}:/opt/{{project}}/{{resource}}
+{% endfor %}
+    entrypoint: pytest
